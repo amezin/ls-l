@@ -202,6 +202,7 @@ int main(int argc, char *argv[])
 
         uids[n_uids_gids] = entry->stat.st_uid;
         gids[n_uids_gids] = entry->stat.st_gid;
+        n_uids_gids += 1;
 
         int nlink_width = snprintf(NULL, 0, "%ju", (uintmax_t)entry->stat.st_nlink);
         if (nlink_width > nlink_column_width) {
@@ -213,7 +214,6 @@ int main(int argc, char *argv[])
             size_column_width = size_width;
         }
 
-        n_uids_gids += 1;
         total_blocks += entry->stat.st_blocks;
     }
 
