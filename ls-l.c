@@ -186,14 +186,14 @@ int main(int argc, char *argv[])
 
         mtimes[i] = strdup(mtime_buffer);
 
-        int mtime_len = strlen(mtime_buffer);
-        if (mtime_len > mtime_column_width) {
-            mtime_column_width = mtime_len;
-        }
-
         if (mtimes[i] == NULL) {
             perror("strdup");
             return EXIT_FAILURE;
+        }
+
+        int mtime_len = strlen(mtime_buffer);
+        if (mtime_len > mtime_column_width) {
+            mtime_column_width = mtime_len;
         }
 
         if (!entry->stat_ok) {
