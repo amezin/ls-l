@@ -4,7 +4,7 @@
 
 size_t unique(void *buf, size_t n, size_t size, int (*cmp)(const void *, const void *))
 {
-    const void *end = (char *)buf + n * size;
+    const void *end = buf + n * size;
 
     void *out = buf;
     const void *prev_out = NULL;
